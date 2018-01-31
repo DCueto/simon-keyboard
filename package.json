@@ -1,0 +1,31 @@
+{
+  "name": "@dcueto/simon-keyboard",
+  "version": "0.1.0",
+  "description": "Proyecto de práctica para el curso de Fundamentos Javascript de Platzi. Juego interactivo HTML estilo \"Simón dice\" donde tienes que ir recordando las teclas que se visualizan.",
+  "main": "dist/src/simon-keyboard.js",
+  "scripts": {
+    "build": "babel src/simon-keyboard.js -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DCueto/simon-keyboard.git"
+  },
+  "keywords": [
+    "simon",
+    "simondice",
+    "dice",
+    "platzi",
+    "practica"
+  ],
+  "author": "Daniel Cueto <dcueto14.dev@gmail.com> (http://twitter.com/dcuetome)",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "chai": "^4.1.2",
+    "mocha": "^5.0.0"
+  },
+  "dependencies": {
+    "sweetalert": "^2.1.0"
+  }
+}
