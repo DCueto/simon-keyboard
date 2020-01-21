@@ -1,6 +1,38 @@
 
-const levels = 15;
+let levels = 15;
 let keys = generateKeys(levels);
+let gameOn = false;
+
+const $easybtn = document.getElementById('easy_btn');
+const $mediumbtn = document.getElementById('medium_btn');
+const $hardbtn = document.getElementById('hard_btn');
+
+const $onboard = document.getElementById('onblvl');
+
+$easybtn.addEventListener('click', easymode);
+$mediumbtn.addEventListener('click', mediummode);
+$hardbtn.addEventListener('click', hardmode);
+
+function easymode(ev){
+	levels = 7;
+	gameOn = true;
+	$onboard.classList.add('hidden');
+	setTimeout(()=>nextLevel(0), 1000);
+}
+
+function mediummode(ev){
+	levels = 12;
+	gameOn = true;
+	$onboard.classList.add('hidden');
+	setTimeout(()=>nextLevel(0), 1000);
+}
+
+function hardmode(ev){
+	levels = 15;
+	gameOn = true;
+	$onboard.classList.add('hidden');
+	setTimeout(()=>nextLevel(0), 1000);
+}
 
 function nextLevel(currentLevel){
 	if (currentLevel == levels){
@@ -11,7 +43,7 @@ function nextLevel(currentLevel){
 	}
 
 	swal({
-		title: `Level ${currentLevel + 1}`,
+		title: `Level ${currentLevel + 1} / ${levels}`,
 		timer: 2000,
 		showConfirmButton: false
 	});
@@ -48,15 +80,13 @@ function nextLevel(currentLevel){
 				}, (ok)=>{
 					if (ok){
 						keys = generateKeys(levels);
-						nextLevel(0);
+						$onboard.classList.remove('hidden');
 					}
 				} 
 			)}, 1500);
 		}
 	}
 }
-
-nextLevel(0);
 
 function generateKeys(levels){
 	return new Array(levels).fill(0).map(generateRandomKey);

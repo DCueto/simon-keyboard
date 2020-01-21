@@ -4,9 +4,45 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+#onblvl {
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: black;
+  margin: 0;
+  padding: 0;
+}
+
+#onblvl.hidden{
+  animation: hidden 1.5s forwards;
+}
+
+.lvl-button{
+  font-size: 20px;
+  padding: 15px 30px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+  border: solid 2px white;
+  transition: color .3s, background-color .3s;
+}
+
+.lvl-button:hover {
+  color: black;
+  background-color: white;
+}
+
 .keyboard {
   display: flex;
-  height: 100%;
+  height: 100vh;
   justify-content: center;
   flex-direction: column;
 }
@@ -51,12 +87,24 @@ body {
   border-color: #e74c3c;
 }
 
+@keyframes hidden {
+  0%{
+    visibility: visible;
+    opacity: 1;
+  }
+
+  100%{
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
 @keyframes appear {
-  0% {
+  from {
     color: black;
     border-color: black;
   }
-  100% {
+  to {
     color: white;
     border-color: white;
   }
